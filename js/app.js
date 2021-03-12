@@ -13,6 +13,9 @@ var createId = 0;
 var playernameNumber = 0;
 var tablaNumber = 1;
 var PlayerNumber = 1;
+var tableRow = 1;
+var tableRowSzamok = 2;
+var tableTdSzamok = 2;
 
 for(let hely = 0; hely<darab.length; hely++){
        darab[hely].setAttribute("id", szam);
@@ -62,12 +65,14 @@ function addPlayerFunction(){
     var addTable = document.createElement("table");
     document.getElementById("tablaId_"+tablaNumber).appendChild(addTable);
     addTable.setAttribute("id", "NewTable_"+tablaNumber);
-
-    var addTr = document.createElement("tr");
-    document.getElementById("NewTable_"+tablaNumber).appendChild(addTr);
-    addTr.setAttribute("id", "NewTr_"+tablaNumber);
-
+    
     for(i=0; i<11; i++){
+        var addTr = document.createElement("tr");
+        document.getElementById("NewTable_"+tablaNumber).appendChild(addTr);
+        addTr.setAttribute("id", "NewTr_"+tableRow);
+
+        tableRow += 1;
+
         var firstLine = document.createElement("th");
         var betuk =[a_0 = document.createTextNode(" "),
             a_1 = document.createTextNode("A"),
@@ -86,10 +91,39 @@ function addPlayerFunction(){
         document.getElementById("NewTr_"+tablaNumber).appendChild(firstLine);
     }
 
+    for(i=0; i<10; i++){
+        var addTh = document.createElement("th");
+        
+        var szamok = [
+            b_0 = document.createTextNode("1."),
+            b_1 = document.createTextNode("2."),
+            b_2 = document.createTextNode("3."),
+            b_3 = document.createTextNode("4."),
+            b_4 = document.createTextNode("5."),
+            b_5 = document.createTextNode("6."),
+            b_6 = document.createTextNode("7."),
+            b_7 = document.createTextNode("8."),
+            b_8 = document.createTextNode("9."),
+            b_9 = document.createTextNode("10.")
+        ];
+
+
+
+        addTh.appendChild(szamok[i]);
+        document.getElementById("NewTr_"+tableRowSzamok).appendChild(addTh);
+        
+        var addTd = document.createElement("td");
+        document.getElementById("NewTr_"+tableRowSzamok).appendChild(addTd);
+
+        tableRowSzamok += 1;
+    }
 
     tablaNumber += 1;
     PlayerNumber += 1;
+
 }
+
+
 
 function createFunction(){
  
@@ -108,7 +142,7 @@ function createFunction(){
         talalt[hely].setAttribute("onclick", "getElementById('talaltId_"+createId+"').style.display = 'none'; getElementById('melleId_"+createId+"').style.display = 'block';");
 
        melle[hely].setAttribute("onclick", "getElementById('melleId_"+createId+"').style.display = 'none'; getElementById('alapId_"+createId+"').style.display = 'block';");
-       
+
         createId += 1; 
     }
 }
