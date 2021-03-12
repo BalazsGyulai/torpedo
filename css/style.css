@@ -38,24 +38,28 @@ table th, table td{
     border: 1px solid #000;
 }
 
-#hajo{
-    display: ;
+.hajo{
+    display: none;
 }
 
-#hajo .color{
+.hajo .color{
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
     background: chartreuse;
 }
 
-#talalt{
+.talalt{
     width: 100%;
     height: 100%;
     z-index: 1;
+    display: none;
 }
 
-#talalt .lines{
+.talalt .lines{
     position: relative;
     width: 25px;
     height: 5px;
@@ -78,7 +82,7 @@ table th, table td{
     border-radius: 3px;
 }
 
-#melle{
+.melle{
     position: absolute;
     width: 100%;
     height: 100%;
@@ -86,9 +90,10 @@ table th, table td{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    display: none;
 }
 
-#melle .point{
+.melle .point{
     position: absolute;
     width: 10px;
     height: 10px;
