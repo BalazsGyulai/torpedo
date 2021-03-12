@@ -1,56 +1,26 @@
 var darab = document.querySelectorAll("td");
+var alap = document.querySelectorAll(".alap");
 var ship = document.querySelectorAll(".hajo");
 var talalt = document.querySelectorAll(".talalt");
 var melle = document.querySelectorAll(".melle");
-let allas = [0, 0, 0, 0];
 var szam = 0;
+var shipId = 0;
 
 for(let hely = 0; hely<darab.length; hely++){
        darab[hely].setAttribute("id", szam);
        szam += 1;
-}
+       alap[hely].setAttribute("id", "alapId_" + shipId);
+       ship[hely].setAttribute("id", "shipId_" + shipId);
+       talalt[hely].setAttribute("id", "talaltId_" + shipId);
+       melle[hely].setAttribute("id", "melleId_" + shipId);
+       
+       alap[hely].setAttribute("onclick", "getElementById('alapId_"+shipId+"').style.display = 'none';getElementById('shipId_"+shipId+"').style.display = 'block';");
 
-/*
-darab[0].addEventListener("click", function(){
-    if(allas[0] === 0){
-        ship[0].style.display = "block";
-        allas[0] = 1;
-    } else if(allas[0] === 1){
-        ship[0].style.display = "none";
-        talalt[0].style.display = "block";
-        allas[0] = 2;
-    } else if(allas[0] === 2){
-        ship[0].style.display = "none";
-        talalt[0].style.display = "none"; 
-        melle[0].style.display = "block";
-        allas[0] = 3;
-    } else if(allas[0] === 3){
-        ship[0].style.display = "none";
-        talalt[0].style.display = "none"; 
-        melle[0].style.display = "none";
-        allas[0] = 0;
+       ship[hely].setAttribute("onclick", "getElementById('shipId_"+shipId+"').style.display = 'none'; getElementById('talaltId_"+shipId+"').style.display = 'block';");
+
+       talalt[hely].setAttribute("onclick", "getElementById('talaltId_"+shipId+"').style.display = 'none'; getElementById('melleId_"+shipId+"').style.display = 'block';");
+
+       melle[hely].setAttribute("onclick", "getElementById('melleId_"+shipId+"').style.display = 'none'; getElementById('alapId_"+shipId+"').style.display = 'block';");
+
+       shipId += 1;
     }
-});
-
-darab[1].addEventListener("click", function(){
-    if(allas[1] === 0){
-        ship[1].style.display = "block";
-        allas[1] = 1;
-    } else if(allas[1] === 1){
-        ship[1].style.display = "none";
-        talalt[1].style.display = "block";
-        allas[1] = 2;
-    } else if(allas[1] === 2){
-        ship[1].style.display = "none";
-        talalt[1].style.display = "none"; 
-        melle[1].style.display = "block";
-        allas[1] = 3;
-    } else if(allas[1] === 3){
-        ship[1].style.display = "none";
-        talalt[1].style.display = "none"; 
-        melle[1].style.display = "none";
-        allas[1] = 0;
-    }
-});
-
-*/
