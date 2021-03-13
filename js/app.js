@@ -1,10 +1,3 @@
-
-var alap = document.querySelectorAll(".alap");
-var ship = document.querySelectorAll(".hajo");
-var talalt = document.querySelectorAll(".talalt");
-var melle = document.querySelectorAll(".melle");
-var CreatePlayerName = document.getElementById("create_name_1");
-var PlayerName = document.getElementById("playername_0");
 var start = document.getElementById("start");
 var ready = document.getElementById("ready");
 var addPlayer = document.getElementById("addPlayer");
@@ -13,16 +6,26 @@ var shipId = 0;
 var createId = 0;
 var playernameNumber = 0;
 var tablaNumber = 1;
-var PlayerNumber = 1;
+var PlayerNumber = 0;
 var tableRow = 1;
 var tableRowSzamok = 1;
 var tableTdSzamok = 2;
-var whereAddAlap = 100;
+var whereAddAlap = 0;
 
 
     start.addEventListener("click", function(){
-      //  PlayerName.innerHTML = CreatePlayerName.value;
-      //  CreatePlayerName.style.display = "none";
+        var nameNumber = 0;
+        
+        for(i=0; i<PlayerNumber; i++){
+
+            document.getElementById("playername_"+nameNumber).style.display = "block";
+            document.getElementById("create_name_"+nameNumber).style.display = "none";
+            
+            document.getElementById("playername_"+nameNumber).innerHTML = document.getElementById("create_name_"+nameNumber).value
+
+
+            nameNumber += 1;
+        }
       
       addPlayer.style.display = "none";
       start.style.display = "none";
@@ -173,8 +176,12 @@ function addIdFunction(){
 }
 
 function createFunction(){
+
+    var tdNumber = document.querySelectorAll("td");
+    var alap = document.querySelectorAll(".alap");
+    var ship = document.querySelectorAll(".hajo");
  
-   for(let hely = 0; hely<darab.length; hely++){
+   for(let hely = 0; hely<tdNumber.length; hely++){
 
         alap[hely].setAttribute("id", "alapId_" + shipId);
         ship[hely].setAttribute("id", "shipId_" + shipId);
@@ -184,29 +191,20 @@ function createFunction(){
         
         ship[hely].setAttribute("onclick", "getElementById('shipId_"+shipId+"').style.display = 'none'; getElementById('alapId_"+shipId+"').style.display = 'block';"); 
         shipId += 1;
-
-        /* ship[hely].removeAttribute("onclick");
-        alap[hely].removeAttribute("onclick");
-
-        talalt[hely].setAttribute("id", "talaltId_" + createId);
-        melle[hely].setAttribute("id", "melleId_" + createId);
-
-        alap[hely].setAttribute("onclick", "getElementById('alapId_"+createId+"').style.display = 'none'; getElementById('talaltId_"+createId+"').style.display = 'block';");
-
-        ship[hely].setAttribute("onclick", "getElementById('talaltId_"+createId+"').style.display = 'block';");
-
-        talalt[hely].setAttribute("onclick", "getElementById('talaltId_"+createId+"').style.display = 'none'; getElementById('melleId_"+createId+"').style.display = 'block';");
-
-       melle[hely].setAttribute("onclick", "getElementById('melleId_"+createId+"').style.display = 'none'; getElementById('alapId_"+createId+"').style.display = 'block';");
-
-        createId += 1;  */
     }
 }
 
 function myReadyFunction(){
-    for(let hely = 0; hely<darab.length; hely++){
 
-      /*   ship[hely].removeAttribute("onclick");
+    var tdNumber = document.querySelectorAll("td");
+    var alap = document.querySelectorAll(".alap");
+    var ship = document.querySelectorAll(".hajo");
+    var talalt = document.querySelectorAll(".talalt");
+    var melle = document.querySelectorAll(".melle");
+
+    for(let hely = 0; hely<tdNumber.length; hely++){
+
+        ship[hely].removeAttribute("onclick");
         alap[hely].removeAttribute("onclick");
 
         talalt[hely].setAttribute("id", "talaltId_" + createId);
@@ -220,6 +218,6 @@ function myReadyFunction(){
 
        melle[hely].setAttribute("onclick", "getElementById('melleId_"+createId+"').style.display = 'none'; getElementById('alapId_"+createId+"').style.display = 'block';");
 
-        createId += 1;  */
+        createId += 1;  
     }
 }
