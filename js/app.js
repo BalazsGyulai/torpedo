@@ -94,7 +94,42 @@ function addPlayerFunction(){
         ];
         addTh.appendChild(betuk[i]);
         document.getElementById("TrId_"+tableRowSzamok).appendChild(addTh);
+
     }
+
+    tableRowSzamok += 1;
+
+    for(i=0;i<10;i++){
+        var addThNumber = document.createElement("th");
+        var szamok = [
+            document.createTextNode("1."),
+            document.createTextNode("2."),
+            document.createTextNode("3."),
+            document.createTextNode("4."),
+            document.createTextNode("5."),
+            document.createTextNode("6."),
+            document.createTextNode("7."),
+            document.createTextNode("8."),
+            document.createTextNode("9."),
+            document.createTextNode("10.")
+        ];
+        
+        addThNumber.appendChild(szamok[i]);
+        document.getElementById("TrId_"+tableRowSzamok).appendChild(addThNumber);
+        tableRowSzamok += 1;
+    }
+
+    tableRowSzamok -= 10;
+
+for(x=0;x<10;x++){
+    for(i=0;i<10;i++){
+        var addTd = document.createElement("td");
+
+        document.getElementById("TrId_"+tableRowSzamok).appendChild(addTd);
+    }
+
+    tableRowSzamok +=1;
+}
 
     tableRowSzamok += 11;
 
