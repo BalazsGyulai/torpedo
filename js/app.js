@@ -48,6 +48,63 @@ for(x=0; x<ColorMelle.length; x++){
     });
 }
 
+
+
+var changeShipColor = document.getElementsByClassName("colorHajo");
+
+changeShipColor[0].addEventListener("click", function(){
+    var shipNumber = document.getElementsByClassName("hajo");
+    
+    for(i=0; i<shipNumber.length; i++){
+        shipNumber[i].style.background = "#ef476f";
+    }
+});
+
+changeShipColor[1].addEventListener("click", function(){
+    var shipNumber = document.getElementsByClassName("hajo");
+    
+    for(i=0; i<shipNumber.length; i++){
+        shipNumber[i].style.background = "#ffd166";
+    }
+});
+
+changeShipColor[2].addEventListener("click", function(){
+    var shipNumber = document.getElementsByClassName("hajo");
+    
+    for(i=0; i<shipNumber.length; i++){
+        shipNumber[i].style.background = "#06d6a0";
+    }
+});
+
+changeShipColor[3].addEventListener("click", function(){
+    var shipNumber = document.getElementsByClassName("hajo");
+    
+    for(i=0; i<shipNumber.length; i++){
+        shipNumber[i].style.background = "#118ab2";
+    }
+});
+
+changeShipColor[4].addEventListener("click", function(){
+    var shipNumber = document.getElementsByClassName("hajo");
+    
+    for(i=0; i<shipNumber.length; i++){
+        shipNumber[i].style.background = "#073b4c";
+    }
+});
+
+
+var ChangeTalaltColor = document.getElementsByClassName("colorTalalt");
+
+ChangeTalaltColor[1].addEventListener("click", function(){
+    var NumberTalalt = document.getElementsByClassName("talalt");
+
+    for(x=0; x<NumberTalalt.length; x++){
+        NumberTalalt[x].style.background = "#000";
+    }
+});
+
+
+
 menuBtn.addEventListener("click", function(){
         menu.style.left = "75%";
 });
