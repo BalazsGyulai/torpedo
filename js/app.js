@@ -11,7 +11,50 @@ var tableRow = 1;
 var tableRowSzamok = 1;
 var tableTdSzamok = 2;
 var whereAddAlap = 0;
+var menu = document.getElementById("sideMenu");
+var menuBtn = document.getElementById("menuButton");
+var closeBtn = document.getElementById("close");
 
+var SzinHajo = document.getElementById("hajoszin");
+var ColorHajo = SzinHajo.getElementsByClassName("colorHajo");
+
+for (i=0;i<ColorHajo.length;i++){
+    ColorHajo[i].addEventListener("click", function(){
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+    });
+}
+
+var talaltszin = document.getElementById("talaltszin");
+var ColorTalalt = talaltszin.getElementsByClassName("colorTalalt");
+
+for(x=0; x<ColorTalalt.length; x++){
+    ColorTalalt[x].addEventListener("click", function(){
+        var most = document.getElementsByClassName("activeTalalt");
+        most[0].className = most[0].className.replace(" activeTalalt", "");
+        this.className += " activeTalalt";
+    });
+}
+
+var melleszin = document.getElementById("melleszin");
+var ColorMelle = melleszin.getElementsByClassName("colormelle");
+
+for(x=0; x<ColorMelle.length; x++){
+    ColorMelle[x].addEventListener("click", function(){
+        var most = document.getElementsByClassName("activeMelle");
+        most[0].className = most[0].className.replace(" activeMelle", "");
+        this.className += " activeMelle";
+    });
+}
+
+menuBtn.addEventListener("click", function(){
+        menu.style.left = "75%";
+});
+
+closeBtn.addEventListener("click", function(){
+        menu.style.left = "-100%";
+});
 
     start.addEventListener("click", function(){
         var nameNumber = 0;
@@ -27,6 +70,8 @@ var whereAddAlap = 0;
             nameNumber += 1;
         }
       
+      document.getElementById("hajoszin").style.display = "flex";
+
       addPlayer.style.display = "none";
       start.style.display = "none";
       ready.style.display = "block";
@@ -35,6 +80,10 @@ var whereAddAlap = 0;
     });
 
     ready.addEventListener("click", function(){
+        
+        document.getElementById("talaltszin").style.display = "flex";
+        document.getElementById("melleszin").style.display = "flex";
+
         myReadyFunction();
     });
 
@@ -195,6 +244,8 @@ function createFunction(){
 }
 
 function myReadyFunction(){
+
+    ready.style.display = "none";
 
     var tdNumber = document.querySelectorAll("td");
     var alap = document.querySelectorAll(".alap");

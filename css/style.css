@@ -8,6 +8,228 @@ body{
     height: 100%;
     box-sizing: border-box;
     display: block;
+    font-family: sans-serif;
+    background: #ebebeb;
+}
+
+#menuButton{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    left: 10px;
+    border-radius: 10px;
+    border: 3px solid #333;
+    background: #ebebeb;
+}
+
+
+.menu{
+    position: absolute;
+    width: 27px;
+    height: 3px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #333;
+    border-radius: 2px;
+}
+
+.menu::before,
+.menu::after{
+    content: '';
+    position: absolute;
+    width: 27px;
+    height: 3px;
+    background: #333;
+    border-radius: 2px;
+}
+
+.menu::before{
+    transform: translateY(-10px);
+}
+
+.menu::after{
+    transform: translateY(10px);
+}
+
+#close{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: 100%;
+    transform: translate(-100%, 0);
+    background: transparent;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+#line{
+    position: absolute;
+    width: 27px;
+    height: 3px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateZ(45deg);
+    background: #333;
+    border-radius: 2px;
+}
+
+#line::before{
+    content: '';
+    position: absolute;
+    width: 27px;
+    height: 3px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateZ(-90deg);
+    background: #333;
+    border-radius: 2px;
+}
+
+#sideMenu{
+    position: absolute;
+    width: 75%;
+    height: 100%;
+    background: #00feff;
+    background: linear-gradient(135deg, #00feff 0%, #00ff99 100%);
+    top: 0;
+    left: -100%;
+    transform: translate(-100%, 0);
+    transition: 1s;
+    z-index: 5;
+}
+
+#buttons{
+    position: absolute;
+    width: 100%;
+    height: 65%;
+    top: 100%;
+    transform: translate(0, -100%);
+    background: transparent;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+
+}
+
+#back{
+    position: absolute;
+    width: 100%;
+    top: 98%;
+    transform: translate(0, -98%);
+    background: transparent;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+#start{
+    padding: 20px;
+    top: 50%;
+    left: 15px;
+    cursor: pointer;
+}
+
+#addPlayer{
+    padding: 20px;
+    top: 50%;
+    left: 15px;
+    cursor: pointer;
+}
+
+#kilepes{
+    padding: 20px;
+    top: 50%;
+    left: 15px;
+    cursor: pointer;
+}
+
+#ready{
+    padding: 20px;
+    top: 50%;
+    left: 15px;
+    display: none;
+    cursor: pointer;
+}
+
+#hajoszin{
+    padding: 20px;
+    top: 50%;
+    left: 15px;
+    cursor: pointer;
+    display: none;
+}
+
+#talaltszin{
+    padding: 20px;
+    top: 50%;
+    left: 15px;
+    cursor: pointer;
+    display: none;
+}
+
+#melleszin{
+    padding: 20px;
+    top: 50%;
+    left: 15px;
+    cursor: pointer;
+    display: none;
+}
+
+.szinek{
+    display: flex;
+    background-color: transparent;
+}
+
+.colorHajo{
+    margin: 0 7px;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+}
+
+.colorTalalt{
+    margin: 0 7px;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px; 
+}
+
+.colormelle{
+    margin: 0 7px;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px; 
+}
+
+.szinegy{
+    background: #ef476f;
+}
+.szinketto{
+    background: #ffd166;
+}
+.szinharom{
+    background: #06d6a0;
+}
+.szinNegy{
+    background: #118ab2;
+}
+.szinot{
+    background: #073b4c;
+}
+
+.active, .activeMelle , .activeTalalt{
+    width: 35px;
+    height: 35px;
+}
+
+#start:hover,
+#addPlayer:hover,
+#kilepes:hover,
+#ready:hover{
+    background: #a5fff0;
 }
 
 #jatek{
@@ -16,11 +238,13 @@ body{
 }
 
 #jatek .tabla{
-    width: auto;
-    height: auto;
+    padding: 10px 0 10px 0px;
+    width: 100%;
+    height: 100%;
 }
 
 .tabla table{
+    color: #000;
     position: relative;
     top: 0;
     left: 50%;
@@ -89,7 +313,7 @@ table th, table td{
     position: absolute;
     width: 10px;
     height: 10px;
-    background: #ff00ff;
+    background: #0000ff;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -107,30 +331,13 @@ input{
     border: 1 px solid #000;
 }
 
-#start{
-    width: 130px;
-    height: 50px;
-    background-color: rosybrown;
-}
-
-#addPlayer{
-    width: 130px;
-    height: 50px;
-    background-color:turquoise;
-}
-
-#ready{
-    width: 130px;
-    height: 50px;
-    background-color:#ff0000;
-    display: none;
-}
-
 p{
     margin: 10px;
     text-align: center;
 }
 
 input{
-    border: 1px solid #000;
+    background: #ebebeb;
+    padding: 3px;
+    border: 1px solid #333;
 }
