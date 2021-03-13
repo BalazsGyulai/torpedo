@@ -74,7 +74,7 @@ function addPlayerFunction(){
         tableRowSzamok += 1;
     }
 
-    for(x=0; x<11;x++){
+/*     for(x=0; x<11;x++){
         var addTh = document.createElement("th");
         var betuk = [
             document.createTextNode(" "),
@@ -92,8 +92,8 @@ function addPlayerFunction(){
 
 
         addTh.appendChild(betuk[x]);
-        document.getElementById("TrId_"+tableRowSzamok).appendChild(addTh);
-    }
+        document.getElementById("TrId_"+tableRowSzamok).appendChild(addTh); 
+    }*/
 
     tablaNumber += 1;
     PlayerNumber += 1;
