@@ -71,10 +71,13 @@ function addPlayerFunction(){
         var addTr = document.createElement("tr");
         document.getElementById("NewTable_"+tablaNumber).appendChild(addTr);
         addTr.setAttribute("id", "TrId_"+tableRowSzamok);
+
         tableRowSzamok += 1;
     }
 
-/*     for(x=0; x<11;x++){
+    tableRowSzamok -= 11;
+
+    for(i=0;i<11;i++){
         var addTh = document.createElement("th");
         var betuk = [
             document.createTextNode(" "),
@@ -89,11 +92,11 @@ function addPlayerFunction(){
             document.createTextNode("I"),
             document.createTextNode("J")
         ];
+        addTh.appendChild(betuk[i]);
+        document.getElementById("TrId_"+tableRowSzamok).appendChild(addTh);
+    }
 
-
-        addTh.appendChild(betuk[x]);
-        document.getElementById("TrId_"+tableRowSzamok).appendChild(addTh); 
-    }*/
+    tableRowSzamok += 11;
 
     tablaNumber += 1;
     PlayerNumber += 1;
