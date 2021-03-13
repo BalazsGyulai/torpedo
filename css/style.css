@@ -129,10 +129,8 @@ input{
 p{
     margin: 10px;
     text-align: center;
-    border: 1 px solid #000;
-    display: block;
 }
 
 input{
-    display: block;
+    border: 1px solid #000;
 }
