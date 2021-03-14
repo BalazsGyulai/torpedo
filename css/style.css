@@ -13,7 +13,7 @@ body{
 }
 
 #menuButton{
-    position: absolute;
+    position: relative;
     width: 40px;
     height: 40px;
     top: 10px;
@@ -282,44 +282,71 @@ table th, table td{
     height: 100%;
     background: #118ab2;
     display: none;
+    z-index: 0;
 }
 
 .talalt{
     position: absolute;
-    width: 25px;
-    height: 5px;
-    background: #ef476f;
+    width: 100%;
+    height: 100%;
+    background: transparent;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotateZ(45deg);
-    border-radius: 3px;
+    transform: translate(-50%, -50%);
     z-index: 1;
     display: none;
 }
 
-.talalt::after{
-    content: '';
+.lineOne{
     position: absolute;
     width: 25px;
     height: 5px;
     background: #ef476f;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotateZ(-90deg);
     border-radius: 3px;
+    transform: translate(-50%, -50%) rotateZ(45deg);
+    z-index: 1;
+    display: block;
 }
+
+.lineTwo{
+    position: absolute;
+    width: 25px;
+    height: 5px;
+    background: #ef476f;
+    top: 50%;
+    left: 50%;
+    border-radius: 3px;
+    transform: translate(-50%, -50%) rotateZ(-45deg);
+    z-index: 1;
+    display: block;
+}
+
 
 .melle{
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: none;
+}
+
+.point{
+    position: absolute;
+    width: 9px;
+    height: 9px;
     background: #06d6a0;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 50%;
     z-index: 2;
-    display: none;
+    border-radius: 50%;
+    display: block; 
 }
 
 input{
@@ -345,4 +372,51 @@ input{
 #back a{
     color: #333;
     text-decoration: none;
+}
+
+@media (max-width: 355px){
+    table th, table td{
+        position: relative;
+        width: 25px;
+        height: 25px;
+        border: 1px solid #000;
+    }
+
+    .talalt{
+        position: absolute;
+        width: 20px;
+        height: 5px;
+        background: #ef476f;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotateZ(45deg);
+        border-radius: 3px;
+        z-index: 1;
+        display: none;
+    }
+    
+    .talalt::after{
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 5px;
+        background: #ef476f;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotateZ(-90deg);
+        border-radius: 3px;
+    }
+    
+    .melle{
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: #06d6a0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        z-index: 2;
+        display: none;
+    }
 }

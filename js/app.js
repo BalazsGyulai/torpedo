@@ -277,6 +277,19 @@ function addIdFunction(){
         whereAddAlap += 1;
     }
 
+    for(i=0; i<darab.length; i++){
+        var addTalaltLineOne = document.createElement("div");
+        document.getElementsByClassName("talalt")[i].appendChild(addTalaltLineOne);
+        addTalaltLineOne.setAttribute("class", "lineOne");
+
+        var addTalaltLineTwo = document.createElement("div");
+        document.getElementsByClassName("talalt")[i].appendChild(addTalaltLineTwo);
+        addTalaltLineTwo.setAttribute("class", "lineTwo");
+
+        var addMellePoint = document.createElement("div");
+        document.getElementsByClassName("melle")[i].appendChild(addMellePoint);
+        addMellePoint.setAttribute("class", "point");
+    }
     
 
 }
@@ -292,10 +305,14 @@ function createFunction(){
         alap[hely].setAttribute("id", "alapId_" + shipId);
         ship[hely].setAttribute("id", "shipId_" + shipId);
         
+        alap[hely].setAttribute("onclick", "getElementById('alapId_"+[hely]+"').style.display = 'none'; getElementById('shipId_"+[hely]+"').style.display = 'block'");
+
+        ship[hely].setAttribute("onclick", "getElementById('alapId_"+[hely]+"').style.display = 'block'; getElementById('shipId_"+[hely]+"').style.display = 'none'")
         
-        alap[hely].setAttribute("onclick", "getElementById('alapId_"+shipId+"').style.display = 'none';getElementById('shipId_"+shipId+"').style.display = 'block';");
+        /*alap[hely].setAttribute("onclick", "getElementById('alapId_"+shipId+"').style.display = 'none';getElementById('shipId_"+shipId+"').style.display = 'block';");
         
-        ship[hely].setAttribute("onclick", "getElementById('shipId_"+shipId+"').style.display = 'none'; getElementById('alapId_"+shipId+"').style.display = 'block';"); 
+        ship[hely].setAttribute("onclick", "getElementById('shipId_"+shipId+"').style.display = 'none'; getElementById('alapId_"+shipId+"').style.display = 'block';"); */
+
         shipId += 1;
     }
 }
@@ -312,19 +329,22 @@ function myReadyFunction(){
 
     for(let hely = 0; hely<tdNumber.length; hely++){
 
-        ship[hely].removeAttribute("onclick");
         alap[hely].removeAttribute("onclick");
+        ship[hely].removeAttribute("onclick");
 
+        alap[hely].style.display = "block";
         talalt[hely].setAttribute("id", "talaltId_" + createId);
         melle[hely].setAttribute("id", "melleId_" + createId);
 
-        alap[hely].setAttribute("onclick", "getElementById('alapId_"+createId+"').style.display = 'none'; getElementById('talaltId_"+createId+"').style.display = 'block';");
+        alap[hely].setAttribute("onclick", "getElementById('alapId_"+[hely]+"').style.display = 'none'; getElementById('talaltId_"+[hely]+"').style.display = 'block';");
 
-        ship[hely].setAttribute("onclick", "getElementById('talaltId_"+createId+"').style.display = 'block';");
+        talalt[hely].setAttribute("onclick", "getElementById('talaltId_"+[hely]+"').style.display = 'none'; getElementById('melleId_"+[hely]+"').style.display = 'block'");
 
-        talalt[hely].setAttribute("onclick", "getElementById('talaltId_"+createId+"').style.display = 'none'; getElementById('melleId_"+createId+"').style.display = 'block';");
+        melle[hely].setAttribute("onclick", "getElementById('melleId_"+[hely]+"').style.display = 'none'; getElementById('alapId_"+[hely]+"').style.display = 'block'");
 
-       melle[hely].setAttribute("onclick", "getElementById('melleId_"+createId+"').style.display = 'none'; getElementById('alapId_"+createId+"').style.display = 'block';");
+
+     //   ship[hely].addEventListener("click", function(){
+     //   })
 
         createId += 1;  
     }
