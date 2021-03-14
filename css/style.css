@@ -13,14 +13,14 @@ body{
 }
 
 #menuButton{
+    margin: 10px;
     position: relative;
     width: 40px;
     height: 40px;
-    top: 10px;
-    left: 10px;
     border-radius: 10px;
     border: 3px solid #333;
     background: #ebebeb;
+    cursor: pointer;
 }
 
 
@@ -101,6 +101,18 @@ body{
     z-index: 5;
 }
 
+#dark{
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    background: #000;
+    z-index: 5;
+    opacity: 0.6;
+    transition: 1s;
+    margin-top: -10px;
+  }
+  
+
 #buttons{
     position: absolute;
     width: 100%;
@@ -139,6 +151,29 @@ body{
     cursor: pointer;
 }
 
+#newGame{
+    padding: 20px;
+    top: 50%;
+    left: 15px;
+    cursor: pointer;
+    display: none;
+}
+
+#PlayerNumberHtml{
+    display: flex;
+    padding: 20px;
+    top: 50%;
+    left: 15px;
+    height: 23px;
+    cursor: pointer;  
+}
+
+#TotalPlayerNumver{
+    position: relative;
+    color: #000;
+    top: -10px;
+}
+
 #kilepes{
     padding: 20px;
     top: 50%;
@@ -146,12 +181,17 @@ body{
     cursor: pointer;
 }
 
-#ready{
+#ready, #TwoReady{
     padding: 20px;
     top: 50%;
     left: 15px;
     display: none;
     cursor: pointer;
+}
+
+.colorSettings{
+    margin-top: 5px;
+    display: flex;
 }
 
 #hajoszin{
@@ -225,16 +265,11 @@ body{
     height: 35px;
 }
 
-#start:hover,
-#addPlayer:hover,
-#kilepes:hover,
-#ready:hover{
-    background: #a5fff0;
-}
-
 #jatek{
     width: 100%;
     height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 #jatek .tabla{
@@ -260,6 +295,7 @@ table th, table td{
     width: 30px;
     height: 30px;
     border: 1px solid #000;
+    background: #ebebeb;
 }
 
 .alap{
@@ -361,6 +397,7 @@ input{
 p{
     margin: 10px;
     text-align: center;
+    color: #ebebeb;
 }
 
 input{
@@ -374,12 +411,50 @@ input{
     text-decoration: none;
 }
 
+@media (max-width: 1118px){
+    #jatek{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 736px){
+    #jatek{
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+@media (max-width: 500px){
+    .colorHajo, 
+    .colorTalalt, 
+    .colormelle{
+        margin: 0 7px;
+        width: 20px;
+        height: 20px;
+        border-radius: 3px;
+    }
+
+    .active, .activeMelle , .activeTalalt{
+        width: 30px;
+        height: 30px;
+    }
+
+}
+
+@media (max-width: 377px){
+    #buttons, #kilepes{
+        font-size: 15px;
+    }
+}
+
 @media (max-width: 355px){
     table th, table td{
         position: relative;
         width: 25px;
         height: 25px;
         border: 1px solid #000;
+        font-size: 14px;
     }
 
     .talalt{
@@ -417,6 +492,80 @@ input{
         transform: translate(-50%, -50%);
         border-radius: 50%;
         z-index: 2;
+        display: none;
+    }
+}
+
+@media (max-width: 300px){
+    table th, table td{
+        position: relative;
+        width: 20px;
+        height: 20px;
+        border: 1px solid #000;
+        font-size: 11px;
+    }
+
+    .talalt{
+        position: absolute;
+        width: 20px;
+        height: 5px;
+        background: #ef476f;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotateZ(45deg);
+        border-radius: 3px;
+        z-index: 1;
+        display: none;
+    }
+    
+    .talalt::after{
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 5px;
+        background: #ef476f;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotateZ(-90deg);
+        border-radius: 3px;
+    }
+    
+    .melle{
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: #06d6a0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        z-index: 2;
+        display: none;
+    }
+
+    .colorHajo, 
+    .colorTalalt, 
+    .colormelle{
+        margin: 0 7px;
+        width: 15px;
+        height: 15px;
+        border-radius: 3px;
+    }
+
+    .active, .activeMelle , .activeTalalt{
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media (max-width: 258px){
+    .colorHajo, 
+    .colorTalalt, 
+    .colormelle{
+        display: none;
+    }
+
+    .active, .activeMelle , .activeTalalt{
         display: none;
     }
 }

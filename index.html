@@ -10,6 +10,9 @@
 </head>
 
 <body>
+
+    <div id="dark"></div>
+
     <div id="menuButton">
         <div class="menu"></div>
     </div>
@@ -21,28 +24,37 @@
         <div id="buttons">
             <div id="start">START</div>
             <div id="addPlayer">+ JÁTÉKOS</div>
+            <div id="PlayerNumberHtml">JÁTÉKOSOK SZÁMA: <p id="TotalPlayerNumver">0</p></div>
             <div id="ready">KÉSZ</div>
+            <div id="TwoReady">KÉSZ2</div>
             <div id="hajoszin">HAJÓ SZÍNE:
+                <div class="colorSettings">
                     <div class="szinegy colorHajo"></div>
                     <div class="szinketto colorHajo"></div>
                     <div class="szinharom colorHajo"></div>
                     <div class="szinNegy colorHajo active"></div>
                     <div class="szinot colorHajo"></div>
+                </div>
             </div>
             <div id="talaltszin">TALÁLT/X SZÍNE:
+                <div class="colorSettings">
                     <div class="szinegy colorTalalt activeTalalt"></div>
                     <div class="szinketto colorTalalt"></div>
                     <div class="szinharom colorTalalt"></div>
                     <div class="szinNegy colorTalalt"></div>
                     <div class="szinot colorTalalt"></div>
+                </div>
             </div>
             <div id="melleszin">NEM TALÁLT/PÖTTY SZÍNE:
+                <div class="colorSettings">
                     <div class="szinegy colormelle"></div>
                     <div class="szinketto colormelle"></div>
                     <div class="szinharom colormelle activeMelle"></div>
                     <div class="szinNegy colormelle"></div>
                     <div class="szinot colormelle"></div>
+                </div>
             </div>
+            <div id="newGame">ÚJ JÁTÉK</div>
         </div>
         <div id="back">
             <div id="kilepes">KILÉPÉS</div>

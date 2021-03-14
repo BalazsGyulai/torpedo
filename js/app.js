@@ -1,5 +1,6 @@
 var start = document.getElementById("start");
 var ready = document.getElementById("ready");
+var readyTwo = document.getElementById("TwoReady");
 var addPlayer = document.getElementById("addPlayer");
 let szam = 0;
 var shipId = 0;
@@ -14,9 +15,17 @@ var whereAddAlap = 0;
 var menu = document.getElementById("sideMenu");
 var menuBtn = document.getElementById("menuButton");
 var closeBtn = document.getElementById("close");
-
+var TotalPlayerNumber = document.getElementById("TotalPlayerNumver");
+var TotalPlayerNumberHtml = document.getElementById("PlayerNumberHtml");
+var PlayerNumberTotal = 0;
+var NewGameBtn = document.getElementById("newGame");
+var dark = document.getElementById("dark");
 var SzinHajo = document.getElementById("hajoszin");
 var ColorHajo = SzinHajo.getElementsByClassName("colorHajo");
+
+if(window.history.replaceState){
+    window.history.replaceState(null, null, window.location.href);
+}
 
 for (i=0;i<ColorHajo.length;i++){
     ColorHajo[i].addEventListener("click", function(){
@@ -95,56 +104,167 @@ changeShipColor[4].addEventListener("click", function(){
 
 var ChangeTalaltColor = document.getElementsByClassName("colorTalalt");
 
-ChangeTalaltColor[1].addEventListener("click", function(){
-    var NumberTalalt = document.getElementsByClassName("talalt");
+ChangeTalaltColor[0].addEventListener("click", function(){
+    var ChangeLineOneColor = document.getElementsByClassName("lineOne");
+    var ChangeLineTwoColor = document.getElementsByClassName("lineTwo");
 
-    for(x=0; x<NumberTalalt.length; x++){
-        NumberTalalt[x].style.background = "#000";
+    for(x=0; x<ChangeLineOneColor.length; x++){
+        ChangeLineOneColor[x].style.background = "#ef476f";
+        ChangeLineTwoColor[x].style.background = "#ef476f";
     }
 });
+
+ChangeTalaltColor[1].addEventListener("click", function(){
+    var ChangeLineOneColor = document.getElementsByClassName("lineOne");
+    var ChangeLineTwoColor = document.getElementsByClassName("lineTwo");
+
+    for(x=0; x<ChangeLineOneColor.length; x++){
+        ChangeLineOneColor[x].style.background = "#ffd166";
+        ChangeLineTwoColor[x].style.background = "#ffd166";
+    }
+});
+
+ChangeTalaltColor[2].addEventListener("click", function(){
+    var ChangeLineOneColor = document.getElementsByClassName("lineOne");
+    var ChangeLineTwoColor = document.getElementsByClassName("lineTwo");
+
+    for(x=0; x<ChangeLineOneColor.length; x++){
+        ChangeLineOneColor[x].style.background = "#06d6a0";
+        ChangeLineTwoColor[x].style.background = "#06d6a0";
+    }
+});
+
+ChangeTalaltColor[3].addEventListener("click", function(){
+    var ChangeLineOneColor = document.getElementsByClassName("lineOne");
+    var ChangeLineTwoColor = document.getElementsByClassName("lineTwo");
+
+    for(x=0; x<ChangeLineOneColor.length; x++){
+        ChangeLineOneColor[x].style.background = "#118ab2";
+        ChangeLineTwoColor[x].style.background = "#118ab2";
+    }
+});
+
+ChangeTalaltColor[4].addEventListener("click", function(){
+    var ChangeLineOneColor = document.getElementsByClassName("lineOne");
+    var ChangeLineTwoColor = document.getElementsByClassName("lineTwo");
+
+    for(x=0; x<ChangeLineOneColor.length; x++){
+        ChangeLineOneColor[x].style.background = "#073b4c";
+        ChangeLineTwoColor[x].style.background = "#073b4c";
+    }
+});
+
+var ChangeMelleColor = document.getElementsByClassName("colormelle");
+
+ChangeMelleColor[0].addEventListener("click", function(){
+    var ChangeMellePointColor = document.getElementsByClassName("point");
+
+    for(y=0; y<ChangeMellePointColor.length; y++){
+        ChangeMellePointColor[y].style.background = "#ef476f";
+    }
+})
+
+ChangeMelleColor[1].addEventListener("click", function(){
+    var ChangeMellePointColor = document.getElementsByClassName("point");
+
+    for(y=0; y<ChangeMellePointColor.length; y++){
+        ChangeMellePointColor[y].style.background = "#ffd166";
+    }
+})
+
+ChangeMelleColor[2].addEventListener("click", function(){
+    var ChangeMellePointColor = document.getElementsByClassName("point");
+
+    for(y=0; y<ChangeMellePointColor.length; y++){
+        ChangeMellePointColor[y].style.background = "#06d6a0";
+    }
+})
+
+ChangeMelleColor[3].addEventListener("click", function(){
+    var ChangeMellePointColor = document.getElementsByClassName("point");
+
+    for(y=0; y<ChangeMellePointColor.length; y++){
+        ChangeMellePointColor[y].style.background = "#118ab2";
+    }
+})
+
+ChangeMelleColor[4].addEventListener("click", function(){
+    var ChangeMellePointColor = document.getElementsByClassName("point");
+
+    for(y=0; y<ChangeMellePointColor.length; y++){
+        ChangeMellePointColor[y].style.background = "#073b4c";
+    }
+})
 
 
 
 menuBtn.addEventListener("click", function(){
+    window.onscroll = function(){window.scrollTo(0,0);};
         menu.style.left = "75%";
+        dark.style.width = "100%";
 });
 
 closeBtn.addEventListener("click", function(){
+    window.onscroll = function(){};
         menu.style.left = "-100%";
+        dark.style.width = "0";
+});
+
+dark.addEventListener("click", function(){
+    window.onscroll = function(){};
+    menu.style.left = "-100%";
+    dark.style.width = "0";
 });
 
     start.addEventListener("click", function(){
-        var nameNumber = 0;
-        
-        for(i=0; i<PlayerNumber; i++){
+     
 
-            document.getElementById("playername_"+nameNumber).style.display = "block";
-            document.getElementById("create_name_"+nameNumber).style.display = "none";
-            
-            document.getElementById("playername_"+nameNumber).innerHTML = document.getElementById("create_name_"+nameNumber).value
+           if(screen.width > 695){
+               document.getElementById("hajoszin").style.display = "flex";
+           } else{
+               document.getElementById("hajoszin").style.display = "block";     
+           }
+       
+             addPlayer.style.display = "none";
+             TotalPlayerNumberHtml.style.display = "none";
+             start.style.display = "none";
+             ready.style.display = "block";
 
+             createFunction();
 
-            nameNumber += 1;
-        }
-      
-      document.getElementById("hajoszin").style.display = "flex";
-
-      addPlayer.style.display = "none";
-      start.style.display = "none";
-      ready.style.display = "block";
-      
-        createFunction();
     });
 
     ready.addEventListener("click", function(){
+        var nameNumber = 0;
         
-        document.getElementById("talaltszin").style.display = "flex";
-        document.getElementById("melleszin").style.display = "flex";
+            for(i=0; i<PlayerNumber; i++){
+        
+                document.getElementById("playername_"+nameNumber).style.display = "block";
+                document.getElementById("create_name_"+nameNumber).style.display = "none";
+                
+                document.getElementById("playername_"+nameNumber).innerHTML = document.getElementById("create_name_"+nameNumber).value
+            }
+    
+            nameNumber += 1;
+        
 
+        if(screen.width > 695){
+            document.getElementById("talaltszin").style.display = "flex";
+            document.getElementById("melleszin").style.display = "flex";
+        } else{
+            document.getElementById("talaltszin").style.display = "block";
+            document.getElementById("melleszin").style.display = "block";
+        }
+    
         myReadyFunction();
     });
 
-    addPlayer.addEventListener("click", function(){
+    addPlayer.addEventListener("click", function(){  
+    
+        PlayerNumberTotal++;
+    
+        TotalPlayerNumber.innerHTML = PlayerNumberTotal; 
+
         addPlayerFunction();
     });
 
@@ -152,7 +272,6 @@ closeBtn.addEventListener("click", function(){
 
 function addPlayerFunction(){
     var addBoard = document.createElement("div");
-    
 
     document.getElementById("jatek").appendChild(addBoard);
     addBoard.setAttribute("class", "tabla");
@@ -296,6 +415,23 @@ function addIdFunction(){
 
 function createFunction(){
 
+    var board = document.getElementsByClassName("tabla");
+    var BoardId = 0;
+    
+    for (i = 0; i < board.length; i++) {
+        var PlayerBackgroundColors = ["#0db39e", "#16db93", "#83e377", "#b9e769", "#efea5a", "#f1c453", "#f29e4c"];
+        
+        
+        board[i].style.background = PlayerBackgroundColors[BoardId];
+
+        if(BoardId < 6){
+            BoardId += 1;
+        } else{
+            BoardId = 0;
+        }
+
+    }
+
     var tdNumber = document.querySelectorAll("td");
     var alap = document.querySelectorAll(".alap");
     var ship = document.querySelectorAll(".hajo");
@@ -307,11 +443,7 @@ function createFunction(){
         
         alap[hely].setAttribute("onclick", "getElementById('alapId_"+[hely]+"').style.display = 'none'; getElementById('shipId_"+[hely]+"').style.display = 'block'");
 
-        ship[hely].setAttribute("onclick", "getElementById('alapId_"+[hely]+"').style.display = 'block'; getElementById('shipId_"+[hely]+"').style.display = 'none'")
-        
-        /*alap[hely].setAttribute("onclick", "getElementById('alapId_"+shipId+"').style.display = 'none';getElementById('shipId_"+shipId+"').style.display = 'block';");
-        
-        ship[hely].setAttribute("onclick", "getElementById('shipId_"+shipId+"').style.display = 'none'; getElementById('alapId_"+shipId+"').style.display = 'block';"); */
+        ship[hely].setAttribute("onclick", "getElementById('alapId_"+[hely]+"').style.display = 'block'; getElementById('shipId_"+[hely]+"').style.display = 'none'");
 
         shipId += 1;
     }
@@ -319,20 +451,24 @@ function createFunction(){
 
 function myReadyFunction(){
 
+
+    NewGameBtn.style.display = "block";
+
     ready.style.display = "none";
 
     var tdNumber = document.querySelectorAll("td");
-    var alap = document.querySelectorAll(".alap");
+    var alap = document.getElementsByClassName("alap");
     var ship = document.querySelectorAll(".hajo");
     var talalt = document.querySelectorAll(".talalt");
     var melle = document.querySelectorAll(".melle");
+
 
     for(let hely = 0; hely<tdNumber.length; hely++){
 
         alap[hely].removeAttribute("onclick");
         ship[hely].removeAttribute("onclick");
-
         alap[hely].style.display = "block";
+
         talalt[hely].setAttribute("id", "talaltId_" + createId);
         melle[hely].setAttribute("id", "melleId_" + createId);
 
@@ -342,10 +478,71 @@ function myReadyFunction(){
 
         melle[hely].setAttribute("onclick", "getElementById('melleId_"+[hely]+"').style.display = 'none'; getElementById('alapId_"+[hely]+"').style.display = 'block'");
 
-
-     //   ship[hely].addEventListener("click", function(){
-     //   })
-
         createId += 1;  
     }
 }
+
+ NewGameBtn.addEventListener("click", function(){
+    NewGameBtn.style.display = "none";
+
+    readyTwo.style.display = "block";
+
+    document.getElementById("talaltszin").style.display = "none";
+    document.getElementById("melleszin").style.display = "none";
+
+    var tdNumber = document.querySelectorAll("td");
+    var alap = document.querySelectorAll(".alap");
+    var ship = document.querySelectorAll(".hajo");
+    var talalt = document.querySelectorAll(".talalt");
+    var melle = document.querySelectorAll(".melle");
+
+    for(i=0; i<tdNumber.length; i++){
+        alap[i].style.display = "block";
+        ship[i].style.display = "none";
+        talalt[i].style.display = "none";
+        melle[i].style.display = "none";
+    }
+
+    for(i=0; i<tdNumber.length; i++){
+
+        alap[i].removeAttribute("onclick");
+        talalt[i].removeAttribute("onclick");
+        melle[i].removeAttribute("onclick");
+
+        
+        alap[i].setAttribute("onclick", "getElementById('alapId_"+[i]+"').style.display = 'none'; getElementById('shipId_"+[i]+"').style.display = 'block'");
+        
+        ship[i].setAttribute("onclick", "getElementById('alapId_"+[i]+"').style.display = 'block'; getElementById('shipId_"+[i]+"').style.display = 'none'");
+
+    }
+});
+
+document.getElementById("kilepes").addEventListener("click", function(){
+    location.href = "../index.html";
+});
+
+readyTwo.addEventListener("click", function(){
+    NewGameBtn.style.display = "block";
+
+    readyTwo.style.display = "none";
+
+    var tdNumber = document.querySelectorAll("td");
+    var alap = document.getElementsByClassName("alap");
+    var ship = document.querySelectorAll(".hajo");
+    var talalt = document.querySelectorAll(".talalt");
+    var melle = document.querySelectorAll(".melle");
+
+
+    for(let hely = 0; hely<tdNumber.length; hely++){
+
+        alap[hely].removeAttribute("onclick");
+        ship[hely].removeAttribute("onclick");
+        alap[hely].style.display = "block";
+
+        alap[hely].setAttribute("onclick", "getElementById('alapId_"+[hely]+"').style.display = 'none'; getElementById('talaltId_"+[hely]+"').style.display = 'block';");
+
+        talalt[hely].setAttribute("onclick", "getElementById('talaltId_"+[hely]+"').style.display = 'none'; getElementById('melleId_"+[hely]+"').style.display = 'block'");
+
+        melle[hely].setAttribute("onclick", "getElementById('melleId_"+[hely]+"').style.display = 'none'; getElementById('alapId_"+[hely]+"').style.display = 'block'");
+    }
+})
